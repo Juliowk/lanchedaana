@@ -1,0 +1,37 @@
+@import 'tailwindcss';
+
+@theme {
+  --color-ana-50: #fff5f5;
+  --color-ana-100: #ffe3e4;
+  --color-ana-200: #ffc9cb;
+  --color-ana-500: #e5343c;
+  --color-ana-600: #d7262e;
+  --color-ana-700: #b31a22;
+  --color-ana-800: #8f151b;
+  --color-tinta: #2b1a1b;
+
+  --font-sans: 'Nunito', ui-rounded, system-ui, sans-serif;
+  --font-display: 'Baloo 2', 'Nunito', ui-rounded, system-ui, sans-serif;
+}
+
+html {
+  -webkit-tap-highlight-color: transparent;
+  scroll-behavior: smooth;
+}
+
+body {
+  @apply bg-ana-50 font-sans text-tinta antialiased;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+}
+
+/* Campos numéricos sem setas */
+input[type='number']::-webkit-inner-spin-button,
+input[type='number']::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

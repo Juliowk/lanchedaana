@@ -1,0 +1,30 @@
+{
+  "categorias": [
+    {
+      "id": "pasteis",
+      "nome": "Pastéis",
+      "itens": [
+        { "id": "pastel-queijo", "nome": "Pastel de queijo", "precoCentavos": 1000 },
+        { "id": "pastel-frango", "nome": "Pastel de frango", "precoCentavos": 1000 },
+        { "id": "pastel-carne", "nome": "Pastel de carne moída", "precoCentavos": 1000 },
+        { "id": "pastel-frango-queijo", "nome": "Pastel de frango com queijo", "precoCentavos": 1200 },
+        { "id": "frango-bacon", "nome": "Frango com bacon", "precoCentavos": 1100 },
+        { "id": "frango-calabresa", "nome": "Frango com calabresa", "precoCentavos": 1100 },
+        { "id": "pizza", "nome": "Pizza", "precoCentavos": 1200 },
+        { "id": "queijo-presunto", "nome": "Queijo com presunto", "precoCentavos": 1200 },
+        { "id": "chocolate", "nome": "Chocolate", "precoCentavos": 1400 },
+        { "id": "frango-cheddar", "nome": "Frango com cheddar", "precoCentavos": 1200 }
+      ]
+    },
+    {
+      "id": "outros",
+      "nome": "Outros",
+      "itens": [
+        { "id": "cachorro-quente", "nome": "Cachorro quente", "precoCentavos": 700 },
+        { "id": "batatinha-simples", "nome": "Batatinha simples", "precoCentavos": 1000 },
+        { "id": "batatinha-cheddar", "nome": "Batatinha com cheddar", "precoCentavos": 1500 },
+        { "id": "batatinha-completa", "nome": "Batatinha com cheddar, calabresa e bacon", "precoCentavos": 2000 }
+      ]
+    }
+  ]
+}
