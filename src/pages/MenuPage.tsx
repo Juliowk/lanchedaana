@@ -1,6 +1,5 @@
 import { useCallback, useEffect, useState } from 'react'
 import { motion } from 'motion/react'
-import { Link } from 'react-router-dom'
 import { CartBar } from '../components/CartBar'
 import { CartSheet } from '../components/CartSheet'
 import { Heart } from '../components/icons'
@@ -71,13 +70,8 @@ function Cardapio({ menu }: { menu: Menu }) {
         <PixSection />
       </div>
 
-      <footer className="mt-10 flex flex-col items-center gap-1 text-sm text-tinta/50">
-        <span className="flex items-center gap-1">
-          Feito com <Heart className="size-3.5 text-ana-500" /> pela Ana
-        </span>
-        <Link to="/admin" className="text-xs text-tinta/30 hover:text-ana-600">
-          Área da Ana
-        </Link>
+      <footer className="mt-10 flex items-center justify-center gap-1 text-sm text-tinta/50">
+        Feito com <Heart className="size-3.5 text-ana-500" /> pela Ana
       </footer>
 
       <CartBar aoAbrir={() => setCarrinhoAberto(true)} />

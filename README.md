@@ -1,25 +1,25 @@
 # Lanche da Ana
 
-Cardápio online do Lanche da Ana: pedido pelo WhatsApp, pagamento por Pix e painel para a Ana editar nomes e preços.
+Cardápio online do Lanche da Ana: pedido pelo WhatsApp e pagamento por Pix.
 
-Site: https://juliowk.github.io/lanchedaana/ · Painel: https://juliowk.github.io/lanchedaana/#/admin
+Site: https://juliowk.github.io/lanchedaana/
 
 ## Desenvolvimento
 
 ```bash
 npm install
-npm run dev      # http://localhost:5173/lanchedaana/
+npm run dev      # http://localhost:5173/
 npm run build    # gera dist/
 ```
 
-Stack: Vite + React + TypeScript, Tailwind CSS, Motion e HashRouter.
+Stack: Vite + React + TypeScript, Tailwind CSS e Motion.
 
 ## Onde ficam as coisas
 
 | O quê | Arquivo |
 |---|---|
 | Cardápio (itens e preços em centavos) | [public/menu.json](public/menu.json) |
-| WhatsApp, chave Pix, nome/cidade do recebedor, login e repositório | [src/config.ts](src/config.ts) |
+| WhatsApp, chave Pix e nome/cidade do recebedor | [src/config.ts](src/config.ts) |
 | Deploy automático | [.github/workflows/deploy.yml](.github/workflows/deploy.yml) |
 
 ## Primeira publicação
@@ -27,16 +27,9 @@ Stack: Vite + React + TypeScript, Tailwind CSS, Motion e HashRouter.
 1. No GitHub, abra **Settings → Pages** e, em **Source**, escolha **GitHub Actions**.
 2. Cada push na `main` faz o build e publica o site (cerca de 1 minuto).
 
-## Token da Ana (painel admin)
+## Alterar o cardápio
 
-O painel salva o cardápio fazendo um commit no `public/menu.json` pela API do GitHub. Para isso é preciso um token:
-
-1. GitHub → **Settings → Developer settings → Personal access tokens → Fine-grained tokens → Generate new token**.
-2. **Repository access:** *Only select repositories* → `lanchedaana`.
-3. **Permissions → Repository permissions → Contents:** *Read and write*.
-4. Em `/#/admin`, a Ana entra com o usuário e a senha e cola o token uma vez. Ele fica salvo no navegador dela.
-
-O login (`Ana_Karla`) é só um portão de interface, já que a senha fica no JavaScript público. Quem protege o cardápio de verdade é o token: sem ele, ninguém consegue alterar o `menu.json`.
+Edite [public/menu.json](public/menu.json) (direto no GitHub ou localmente) e faça commit na `main`. Os preços ficam em centavos (`1200` = R$ 12,00). O site atualiza em cerca de 1 minuto.
 
 ## Pix
 
