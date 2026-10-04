@@ -1,28 +1,19 @@
-import { useEffect, useMemo, useState } from 'react'
+import { useMemo, useState } from 'react'
 import { motion } from 'motion/react'
-import QRCode from 'qrcode'
 import { config } from '../config'
 import { useCart } from '../lib/cart'
 import { formatBRL } from '../lib/money'
 import { gerarPixCopiaECola } from '../lib/pix'
+import { useQrCode } from '../lib/useQrCode'
 import { CopyButton } from './CopyButton'
+import { QrDownloadButton } from './QrDownloadButton'
 
 export function PixSection() {
   const { totalCentavos } = useCart()
   const [comValor, setComValor] = useState(true)
   const usarValor = comValor && totalCentavos > 0
   const copiaECola = useMemo(() => gerarPixCopiaECola(usarValor ? totalCentavos : undefined), [usarValor, totalCentavos])
-  const [qr, setQr] = useState<string>()
-
-  useEffect(() => {
-    let ativo = true
-    QRCode.toDataURL(copiaECola, { margin: 1, width: 480, color: { dark: '#2b1a1b', light: '#ffffff' } })
-      .then((url) => ativo && setQr(url))
-      .catch(() => ativo && setQr(undefined))
-    return () => {
-      ativo = false
-    }
-  }, [copiaECola])
+  const qr = useQrCode(copiaECola)
 
   return (
     <motion.section
@@ -65,12 +56,13 @@ export function PixSection() {
         <p className="mt-2 text-xs text-tinta/60">
           {usarValor ? `QR code já com o valor do pedido: ${formatBRL(totalCentavos)}` : 'Escaneie no app do seu banco'}
         </p>
+        <QrDownloadButton texto={copiaECola} arquivo="lanche-da-ana-pix.png" className="mt-3" />
         <CopyButton
           texto={copiaECola}
           rotulo="Copiar Pix copia e cola"
           rotuloCopiado="Código copiado!"
           variante="contorno"
-          className="mt-3 w-full"
+          className="mt-4 w-full"
         />
       </div>
     </motion.section>

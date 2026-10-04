@@ -5,6 +5,7 @@ import { CartSheet } from '../components/CartSheet'
 import { Heart } from '../components/icons'
 import { ItemRow } from '../components/ItemRow'
 import { PixSection } from '../components/PixSection'
+import { ShareSection } from '../components/ShareSection'
 import { CartProvider } from '../lib/cart'
 import { carregarMenu, type Menu } from '../lib/menu'
 
@@ -68,6 +69,10 @@ function Cardapio({ menu }: { menu: Menu }) {
 
       <div className="mt-10">
         <PixSection />
+      </div>
+
+      <div className="mt-6">
+        <ShareSection />
       </div>
 
       <footer className="mt-10 flex items-center justify-center gap-1 text-sm text-tinta/50">

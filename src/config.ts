@@ -1,4 +1,7 @@
 export const config = {
+  // Endereço público usado no QR code e no link de compartilhamento.
+  siteUrl: 'https://juliowk.github.io/lanchedaana/',
+
   whatsapp: '558496275652',
 
   pix: {

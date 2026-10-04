@@ -70,6 +70,22 @@ export function WhatsApp(props: IconProps) {
   )
 }
 
+export function Download(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={2} {...props}>
+      <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
+    </svg>
+  )
+}
+
+export function Share(props: IconProps) {
+  return (
+    <svg {...base} strokeWidth={2} {...props}>
+      <path d="M12 3v12M8 7l4-4 4 4M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" />
+    </svg>
+  )
+}
+
 export function Close(props: IconProps) {
   return (
     <svg {...base} {...props}>
