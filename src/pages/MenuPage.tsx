@@ -4,6 +4,7 @@ import { CartBar } from '../components/CartBar'
 import { CartSheet } from '../components/CartSheet'
 import { Heart } from '../components/icons'
 import { ItemRow } from '../components/ItemRow'
+import { LogoEmpilhado, LogoHorizontal } from '../components/Logo'
 import { PixSection } from '../components/PixSection'
 import { ShareSection } from '../components/ShareSection'
 import { CartProvider } from '../lib/cart'
@@ -75,8 +76,11 @@ function Cardapio({ menu }: { menu: Menu }) {
         <ShareSection />
       </div>
 
-      <footer className="mt-10 flex items-center justify-center gap-1 text-sm text-tinta/50">
-        Feito com <Heart className="size-3.5 text-ana-vermelho" /> pela Ana
+      <footer className="mt-10 flex flex-col items-center gap-2 text-sm text-tinta-suave">
+        <LogoEmpilhado className="w-36" />
+        <p className="flex items-center gap-1">
+          Feito com <Heart className="size-3.5 text-ana-vermelho" /> pela Ana
+        </p>
       </footer>
 
       <CartBar aoAbrir={() => setCarrinhoAberto(true)} />
@@ -95,11 +99,11 @@ const coracoesDecorativos = [
 
 function Cabecalho() {
   return (
-    <header className="relative overflow-hidden rounded-b-[2.5rem] bg-ana-vermelho px-4 pb-10 pt-[max(2.5rem,env(safe-area-inset-top))] text-center text-white shadow-lg shadow-ana-vinho/20">
+    <header className="relative overflow-hidden rounded-b-[2.5rem] bg-ana-rosa px-4 pb-8 pt-[max(2rem,env(safe-area-inset-top))] text-center">
       {coracoesDecorativos.map((c, i) => (
         <motion.span
           key={i}
-          className="absolute text-white/25"
+          className="absolute text-ana-vermelho/20"
           style={{ top: c.top, left: c.left, rotate: c.rot }}
           animate={{ y: [0, -6, 0] }}
           transition={{ duration: 3, repeat: Infinity, ease: 'easeInOut', delay: c.delay }}
@@ -108,10 +112,13 @@ function Cabecalho() {
         </motion.span>
       ))}
       <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <p className="text-sm font-bold uppercase tracking-[0.25em] text-white/80">Cardápio</p>
-        <h1 className="font-titulo text-5xl font-extrabold leading-tight drop-shadow-sm">Lanche da Ana</h1>
-        <p className="mt-1 flex items-center justify-center gap-1.5 font-semibold text-white/90">
-          Pastéis, cachorro quente e batatinha <Heart className="size-4" />
+        <h1>
+          <span className="sr-only">Lanche da Ana</span>
+          <LogoHorizontal />
+        </h1>
+        <p className="mt-3 text-sm font-bold uppercase tracking-[0.25em] text-ana-vinho">Cardápio</p>
+        <p className="mt-0.5 flex items-center justify-center gap-1.5 font-semibold text-tinta-suave">
+          Pastéis, cachorro quente e batatinha <Heart className="size-4 text-ana-vermelho" />
         </p>
       </motion.div>
     </header>
