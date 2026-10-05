@@ -1,10 +1,11 @@
-import { useCallback, useEffect, useState } from 'react'
+import { useCallback, useEffect, useMemo, useState } from 'react'
 import { motion } from 'motion/react'
 import { CartBar } from '../components/CartBar'
 import { CartSheet } from '../components/CartSheet'
 import { Heart } from '../components/icons'
 import { ItemRow } from '../components/ItemRow'
 import { LogoEmpilhado, LogoHorizontal } from '../components/Logo'
+import { NavCategorias } from '../components/NavCategorias'
 import { PixSection } from '../components/PixSection'
 import { ShareSection } from '../components/ShareSection'
 import { TituloSecao } from '../components/TituloSecao'
@@ -52,12 +53,18 @@ export function MenuPage() {
 function Cardapio({ menu }: { menu: Menu }) {
   const [carrinhoAberto, setCarrinhoAberto] = useState(false)
   const fechar = useCallback(() => setCarrinhoAberto(false), [])
+  const destinos = useMemo(
+    () => [...menu.categorias.map((c) => ({ id: `cat-${c.id}`, nome: c.nome })), { id: 'pix', nome: 'Pix' }],
+    [menu],
+  )
 
   return (
     <>
+      <NavCategorias destinos={destinos} />
+
       {menu.categorias.map((categoria) => (
-        <section key={categoria.id} className="mt-8" aria-labelledby={`cat-${categoria.id}`}>
-          <TituloSecao id={`cat-${categoria.id}`} className="mb-1">
+        <section key={categoria.id} className="mt-4 first-of-type:mt-2" aria-labelledby={`cat-${categoria.id}`}>
+          <TituloSecao id={`cat-${categoria.id}`} className="mb-1 scroll-mt-20">
             {categoria.nome}
           </TituloSecao>
           <ul className="divide-y divide-borda border-b border-borda">
@@ -99,7 +106,7 @@ const coracoesDecorativos = [
 
 function Cabecalho() {
   return (
-    <header className="relative overflow-hidden rounded-b-[2.5rem] bg-ana-rosa px-4 pb-8 pt-[max(2rem,env(safe-area-inset-top))] text-center">
+    <header className="relative overflow-hidden rounded-b-[2.5rem] bg-ana-rosa px-4 pb-7 pt-[max(1.75rem,env(safe-area-inset-top))]">
       {coracoesDecorativos.map((c, i) => (
         <motion.span
           key={i}
@@ -112,14 +119,10 @@ function Cabecalho() {
         </motion.span>
       ))}
       <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
-        <h1>
+        <h1 className="flex justify-center">
           <span className="sr-only">Lanche da Ana</span>
           <LogoHorizontal />
         </h1>
-        <p className="mt-3 text-sm font-bold uppercase tracking-[0.25em] text-ana-vinho">Cardápio</p>
-        <p className="mt-0.5 flex items-center justify-center gap-1.5 font-semibold text-tinta-suave">
-          Pastéis, cachorro quente e batatinha <Heart className="size-4 text-ana-vermelho" />
-        </p>
       </motion.div>
     </header>
   )

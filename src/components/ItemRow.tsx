@@ -3,7 +3,17 @@ import { AnimatePresence, motion, useAnimate, useReducedMotion } from 'motion/re
 import { useCart } from '../lib/cart'
 import type { Item } from '../lib/menu'
 import { formatBRL } from '../lib/money'
-import { Heart, Minus, Plus } from './icons'
+import { Batatinha, CachorroQuente, Heart, Minus, Pastel, Plus } from './icons'
+
+/** Ícone ilustrativo do item, pelo id (o menu.json não guarda ícone). */
+function IconeItem({ id }: { id: string }) {
+  const Icone = id.startsWith('cachorro') ? CachorroQuente : id.startsWith('batatinha') ? Batatinha : Pastel
+  return (
+    <span className="grid size-11 shrink-0 place-items-center rounded-full bg-ana-rosa text-ana-vinho" aria-hidden>
+      <Icone className="size-6" />
+    </span>
+  )
+}
 
 export function ItemRow({ item, indice }: { item: Item; indice: number }) {
   const { quantidadeDe, adicionar, diminuir } = useCart()
@@ -27,6 +37,7 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
       transition={{ duration: 0.4, ease: 'easeOut', delay: (indice % 4) * 0.05 }}
       className="flex items-center gap-3 py-3"
     >
+      <IconeItem id={item.id} />
       <div className="min-w-0 flex-1">
         <p className="font-bold leading-snug text-tinta">{item.nome}</p>
         <p className="font-extrabold text-ana-vinho">{formatBRL(item.precoCentavos)}</p>

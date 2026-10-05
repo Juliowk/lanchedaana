@@ -31,6 +31,42 @@ export function Coracao(props: IconProps) {
   )
 }
 
+/** pastel.svg */
+export function Pastel(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M3 17A9 9 0 0 1 21 17ZM5.9 12.7L7.3 13.7M9.4 10L10 11.6M14.6 10L14 11.6M18.1 12.7L16.7 13.7" />
+    </svg>
+  )
+}
+
+/** cachorro-quente.svg */
+export function CachorroQuente(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 12a2 2 0 0 1 2-2h12a2 2 0 0 1 0 4H6a2 2 0 0 1-2-2ZM3 14v.5a4 4 0 0 0 4 4h10a4 4 0 0 0 4-4V14M8 12l1.5-1 1.5 1 1.5-1 1.5 1 1.5-1" />
+    </svg>
+  )
+}
+
+/** batatinha.svg */
+export function Batatinha(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M6 10h12l-1.5 10h-9ZM8 10V4.5M10.7 10V3M13.3 10V4M16 10V5.5" />
+    </svg>
+  )
+}
+
+/** qrcode.svg */
+export function QrCode(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M4 4h6v6H4ZM14 4h6v6h-6ZM4 14h6v6H4ZM14 14h2v2h-2ZM18 18h2v2h-2ZM14 19h.01M19 14h.01" />
+    </svg>
+  )
+}
+
 /** mais.svg */
 export function Plus(props: IconProps) {
   return (
@@ -103,15 +139,7 @@ export function Close(props: IconProps) {
   )
 }
 
-// Sem equivalente em brand/icons: mantidos no mesmo estilo (traço 2, arredondado).
-export function Download(props: IconProps) {
-  return (
-    <svg {...base} {...props}>
-      <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
-    </svg>
-  )
-}
-
+// Sem equivalente em brand/icons: mantido no mesmo estilo (traço 2, arredondado).
 export function Share(props: IconProps) {
   return (
     <svg {...base} {...props}>

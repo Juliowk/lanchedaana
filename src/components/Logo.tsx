@@ -37,7 +37,8 @@ export function LogoHorizontal() {
     <span className="inline-flex items-center gap-3" aria-hidden>
       <Simbolo className="h-14 w-auto shrink-0" />
       <span className="flex flex-col items-start leading-none">
-        <span className="font-titulo text-sm font-bold uppercase tracking-[0.3em] text-ana-vinho">Lanche da</span>
+        {/* margem negativa anula o espaçamento extra que o tracking deixa após a última letra */}
+        <span className="mr-[-0.3em] font-titulo text-sm font-bold uppercase tracking-[0.3em] text-ana-vinho">Lanche da</span>
         <span className="-mt-0.5 font-titulo text-5xl font-extrabold text-ana-vermelho">Ana</span>
       </span>
     </span>

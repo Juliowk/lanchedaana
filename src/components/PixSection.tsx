@@ -23,7 +23,7 @@ export function PixSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45 }}
-      className="scroll-mt-4 rounded-card bg-white p-5 text-center ring-1 ring-borda"
+      className="scroll-mt-20 rounded-card bg-white p-5 text-center ring-1 ring-borda"
     >
       <TituloSecao className="justify-center">Pague com Pix</TituloSecao>
       <p className="mt-1 text-sm font-semibold text-tinta-suave">Depois de pagar, envie o comprovante no WhatsApp.</p>

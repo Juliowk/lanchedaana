@@ -1,7 +1,7 @@
 import { motion } from 'motion/react'
 import QRCode from 'qrcode'
 import { corQrCode } from '../lib/marca'
-import { Download } from './icons'
+import { QrCode } from './icons'
 
 /** Baixa o QR code do texto em PNG de alta resolução (bom para imprimir). */
 export function QrDownloadButton({ texto, arquivo, className = '' }: { texto: string; arquivo: string; className?: string }) {
@@ -22,7 +22,7 @@ export function QrDownloadButton({ texto, arquivo, className = '' }: { texto: st
       onClick={baixar}
       className={`inline-flex min-h-alvo items-center justify-center gap-2 rounded-full px-4 text-sm font-extrabold text-ana-vinho ring-2 ring-inset ring-borda hover:bg-ana-rosa ${className}`}
     >
-      <Download className="size-5" />
+      <QrCode className="size-5" />
       Baixar QR code
     </motion.button>
   )
