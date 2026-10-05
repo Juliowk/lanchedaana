@@ -1,78 +1,112 @@
 import type { SVGProps } from 'react'
 
+// Ícones da marca (brand-lanche-da-ana/brand/icons): grade 24×24, traço 2 arredondado, cor herdada (currentColor).
 type IconProps = SVGProps<SVGSVGElement>
 
 const base = {
   viewBox: '0 0 24 24',
   fill: 'none',
   stroke: 'currentColor',
-  strokeWidth: 2.4,
+  strokeWidth: 2,
   strokeLinecap: 'round',
   strokeLinejoin: 'round',
   'aria-hidden': true,
 } as const
 
+/** Coração cheio, no mesmo desenho dos corações do símbolo. Usado como enfeite. */
 export function Heart(props: IconProps) {
   return (
     <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
-      <path d="M12 21.2l-1.3-1.2C5.6 15.4 2.3 12.4 2.3 8.7 2.3 5.7 4.7 3.3 7.7 3.3c1.7 0 3.3.8 4.3 2.1 1-1.3 2.6-2.1 4.3-2.1 3 0 5.4 2.4 5.4 5.4 0 3.7-3.3 6.7-8.4 11.3L12 21.2z" />
+      <path d="M12 21C5 16 1 12 3 7.5C4.8 3.8 9.6 3.6 12 7C14.4 3.6 19.2 3.8 21 7.5C23 12 19 16 12 21Z" />
     </svg>
   )
 }
 
+/** coracao.svg */
+export function Coracao(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M12 20C5.5 15.5 2 12 3.5 7.8C5 4.2 9.6 3.8 12 7.2C14.4 3.8 19 4.2 20.5 7.8C22 12 18.5 15.5 12 20Z" />
+    </svg>
+  )
+}
+
+/** mais.svg */
 export function Plus(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M12 5v14M5 12h14" />
+      <path d="M12 6v12M6 12h12" />
     </svg>
   )
 }
 
+/** menos.svg */
 export function Minus(props: IconProps) {
   return (
     <svg {...base} {...props}>
-      <path d="M5 12h14" />
+      <path d="M6 12h12" />
     </svg>
   )
 }
 
-export function Bag(props: IconProps) {
+/** carrinho.svg */
+export function Carrinho(props: IconProps) {
   return (
-    <svg {...base} strokeWidth={2} {...props}>
-      <path d="M6 7h12l1 13H5L6 7z" />
-      <path d="M9 7a3 3 0 0 1 6 0" />
+    <svg {...base} {...props}>
+      <path d="M5 8h14l-1 12H6ZM9 8V6.5a3 3 0 0 1 6 0V8" />
     </svg>
   )
 }
 
+/** remover.svg */
 export function Trash(props: IconProps) {
   return (
-    <svg {...base} strokeWidth={2} {...props}>
-      <path d="M4 7h16M10 11v6M14 11v6M6 7l1 13h10l1-13M9 7V4h6v3" />
+    <svg {...base} {...props}>
+      <path d="M4 7h16M10 7V4.5h4V7M6 7l1 13h10l1-13M10 11v5M14 11v5" />
     </svg>
   )
 }
 
+/** copiar.svg */
 export function Copy(props: IconProps) {
   return (
-    <svg {...base} strokeWidth={2} {...props}>
-      <rect x="9" y="9" width="11" height="11" rx="2" />
-      <path d="M5 15V5a2 2 0 0 1 2-2h8" />
+    <svg {...base} {...props}>
+      <path d="M9 9h10v11H9ZM5 15V4h10" />
     </svg>
   )
 }
 
-export function WhatsApp(props: IconProps) {
+/** enviar-pedido.svg (ícone genérico no lugar do logo do WhatsApp, conforme o guia da marca) */
+export function EnviarPedido(props: IconProps) {
   return (
-    <svg viewBox="0 0 24 24" fill="currentColor" aria-hidden {...props}>
-      <path d="M12 2a10 10 0 0 0-8.6 15.1L2 22l5-1.3A10 10 0 1 0 12 2zm0 18.2c-1.5 0-3-.4-4.3-1.2l-.3-.2-3 .8.8-2.9-.2-.3A8.2 8.2 0 1 1 12 20.2zm4.5-6.1c-.2-.1-1.5-.7-1.7-.8-.2-.1-.4-.1-.6.1l-.8 1c-.1.2-.3.2-.5.1a6.7 6.7 0 0 1-3.3-2.9c-.3-.4.2-.4.7-1.4.1-.2 0-.3 0-.5l-.8-1.8c-.2-.5-.4-.4-.6-.4h-.5a1 1 0 0 0-.7.3c-.2.3-.9.9-.9 2.2s1 2.6 1.1 2.7c.1.2 1.9 2.9 4.6 4.1 1.7.7 2.4.8 3.2.7.5-.1 1.5-.6 1.8-1.2.2-.6.2-1.1.1-1.2l-.5-.3z" />
+    <svg {...base} {...props}>
+      <path d="M4 5h16a1 1 0 0 1 1 1v9a1 1 0 0 1-1 1H10l-4 4v-4H4a1 1 0 0 1-1-1V6a1 1 0 0 1 1-1ZM8.5 10.5h.01M12 10.5h.01M15.5 10.5h.01" />
     </svg>
   )
 }
 
+/** seta-direita.svg */
+export function SetaDireita(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M9 6l6 6-6 6" />
+    </svg>
+  )
+}
+
+/** fechar.svg */
+export function Close(props: IconProps) {
+  return (
+    <svg {...base} {...props}>
+      <path d="M6 6l12 12M18 6L6 18" />
+    </svg>
+  )
+}
+
+// Sem equivalente em brand/icons: mantidos no mesmo estilo (traço 2, arredondado).
 export function Download(props: IconProps) {
   return (
-    <svg {...base} strokeWidth={2} {...props}>
+    <svg {...base} {...props}>
       <path d="M12 4v11M7 10l5 5 5-5M5 20h14" />
     </svg>
   )
@@ -80,16 +114,8 @@ export function Download(props: IconProps) {
 
 export function Share(props: IconProps) {
   return (
-    <svg {...base} strokeWidth={2} {...props}>
-      <path d="M12 3v12M8 7l4-4 4 4M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" />
-    </svg>
-  )
-}
-
-export function Close(props: IconProps) {
-  return (
     <svg {...base} {...props}>
-      <path d="M6 6l12 12M18 6L6 18" />
+      <path d="M12 3v12M8 7l4-4 4 4M5 13v6a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-6" />
     </svg>
   )
 }

@@ -4,7 +4,7 @@ import { useCart } from '../lib/cart'
 import { formatBRL } from '../lib/money'
 import { linkWhatsApp, montarMensagem } from '../lib/whatsapp'
 import { AnimatedBRL } from './AnimatedBRL'
-import { Close, Minus, Plus, Trash, WhatsApp } from './icons'
+import { Close, EnviarPedido, Minus, Plus, Trash } from './icons'
 
 export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () => void }) {
   const carrinho = useCart()
@@ -172,7 +172,7 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                     : 'pointer-events-none bg-tinta/20 shadow-none'
                 }`}
               >
-                <WhatsApp className="size-6" />
+                <EnviarPedido className="size-6" />
                 Enviar pedido
               </a>
               {linhas.length > 0 && (

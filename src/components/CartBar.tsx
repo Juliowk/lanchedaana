@@ -1,7 +1,7 @@
 import { AnimatePresence, motion } from 'motion/react'
 import { useCart } from '../lib/cart'
 import { AnimatedBRL } from './AnimatedBRL'
-import { Bag } from './icons'
+import { Carrinho } from './icons'
 
 export function CartBar({ aoAbrir }: { aoAbrir: () => void }) {
   const { totalItens, totalCentavos } = useCart()
@@ -23,7 +23,7 @@ export function CartBar({ aoAbrir }: { aoAbrir: () => void }) {
             className="mx-auto flex w-full max-w-xl items-center gap-3 rounded-2xl bg-ana-vermelho px-4 py-3 text-left text-white shadow-xl shadow-ana-vinho/30"
           >
             <span className="relative grid size-11 place-items-center rounded-xl bg-white/15">
-              <Bag className="size-6" />
+              <Carrinho className="size-6" />
               <motion.span
                 key={totalItens}
                 initial={{ scale: 1.7 }}

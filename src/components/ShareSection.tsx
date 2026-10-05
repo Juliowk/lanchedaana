@@ -2,7 +2,7 @@ import { motion } from 'motion/react'
 import { config } from '../config'
 import { useQrCode } from '../lib/useQrCode'
 import { CopyButton } from './CopyButton'
-import { Share, WhatsApp } from './icons'
+import { EnviarPedido, Share } from './icons'
 import { QrDownloadButton } from './QrDownloadButton'
 
 const titulo = 'Lanche da Ana'
@@ -46,7 +46,7 @@ export function ShareSection() {
             rel="noopener noreferrer"
             className="inline-flex items-center justify-center gap-2 rounded-full bg-[#25d366] px-4 py-3 font-bold text-white active:scale-[0.97]"
           >
-            <WhatsApp className="size-5" />
+            <EnviarPedido className="size-5" />
             WhatsApp
           </a>
           {podeCompartilhar && (

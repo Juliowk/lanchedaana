@@ -42,7 +42,7 @@ export function CopyButton({ texto, rotulo, rotuloCopiado = 'Copiado!', variante
               className="size-5"
               fill="none"
               stroke="currentColor"
-              strokeWidth={3}
+              strokeWidth={2.5}
               strokeLinecap="round"
               strokeLinejoin="round"
               initial={{ scale: 0.4, opacity: 0 }}
@@ -51,7 +51,7 @@ export function CopyButton({ texto, rotulo, rotuloCopiado = 'Copiado!', variante
               aria-hidden
             >
               <motion.path
-                d="M5 12.5l4.5 4.5L19 7.5"
+                d="M5 12.5l4.5 4.5L19 7"
                 initial={{ pathLength: 0 }}
                 animate={{ pathLength: 1 }}
                 transition={{ duration: 0.35, ease: 'easeOut' }}
