@@ -51,6 +51,13 @@
   --spacing-alvo: var(--alvo-toque);
 }
 
+/* Forma comum dos botões grandes. A cor vem junto:
+   primário  → botao bg-ana-vermelho text-white
+   secundário → botao bg-white text-ana-vinho ring-2 ring-inset ring-ana-vinho */
+@utility botao {
+  @apply inline-flex min-h-14 items-center justify-center gap-2 rounded-botao px-5 font-extrabold;
+}
+
 html {
   -webkit-tap-highlight-color: transparent;
   scroll-behavior: smooth;

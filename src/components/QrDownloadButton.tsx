@@ -20,9 +20,9 @@ export function QrDownloadButton({ texto, arquivo, className = '' }: { texto: st
       type="button"
       whileTap={{ scale: 0.95 }}
       onClick={baixar}
-      className={`inline-flex items-center justify-center gap-2 rounded-full px-4 py-2 text-sm font-bold text-ana-vinho ring-2 ring-borda hover:bg-ana-rosa ${className}`}
+      className={`inline-flex min-h-alvo items-center justify-center gap-2 rounded-full px-4 text-sm font-extrabold text-ana-vinho ring-2 ring-inset ring-borda hover:bg-ana-rosa ${className}`}
     >
-      <Download className="size-4" />
+      <Download className="size-5" />
       Baixar QR code
     </motion.button>
   )

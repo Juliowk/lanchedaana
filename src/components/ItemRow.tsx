@@ -25,19 +25,20 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.4, ease: 'easeOut', delay: (indice % 4) * 0.05 }}
-      className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-borda"
+      className="flex items-center gap-3 py-3"
     >
       <div className="min-w-0 flex-1">
-        <p className="font-bold leading-snug">{item.nome}</p>
-        <p className="font-titulo text-lg font-bold text-ana-vermelho">{formatBRL(item.precoCentavos)}</p>
+        <p className="font-bold leading-snug text-tinta">{item.nome}</p>
+        <p className="font-extrabold text-ana-vinho">{formatBRL(item.precoCentavos)}</p>
       </div>
 
-      <div className="flex items-center gap-1">
+      {/* Stepper: pílula rosa com − transparente, quantidade e + vermelho */}
+      <div className={`flex items-center rounded-full transition-colors ${quantidade > 0 ? 'bg-ana-rosa' : ''}`}>
         <AnimatePresence initial={false}>
           {quantidade > 0 && (
             <motion.div
               key="menos"
-              className="flex items-center gap-1"
+              className="flex items-center"
               initial={{ opacity: 0, x: 12 }}
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: 12 }}
@@ -48,15 +49,15 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
                 whileTap={{ scale: 0.85 }}
                 onClick={() => diminuir(item.id)}
                 aria-label={`Remover um ${item.nome}`}
-                className="grid size-9 place-items-center rounded-full bg-borda text-ana-vinho"
+                className="grid size-alvo place-items-center rounded-full text-ana-vinho"
               >
-                <Minus className="size-4" />
+                <Minus className="size-5" />
               </motion.button>
               <motion.span
                 key={quantidade}
                 initial={{ scale: 1.4 }}
                 animate={{ scale: 1 }}
-                className="w-7 text-center font-titulo text-lg font-bold tabular-nums"
+                className="w-6 text-center text-lg font-extrabold tabular-nums text-tinta"
                 aria-label={`${quantidade} no carrinho`}
               >
                 {quantidade}
@@ -72,9 +73,9 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
             whileTap={{ scale: 0.85 }}
             onClick={aoAdicionar}
             aria-label={`Adicionar ${item.nome}`}
-            className="grid size-10 place-items-center rounded-full bg-ana-vermelho text-white shadow-md shadow-ana-vermelho/30"
+            className="grid size-alvo place-items-center rounded-full bg-ana-vermelho text-white shadow-md shadow-ana-vermelho/30"
           >
-            <Plus className="size-5" />
+            <Plus className="size-6" />
           </motion.button>
           {coracoes.map((id) => (
             <motion.span

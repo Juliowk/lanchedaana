@@ -7,6 +7,7 @@ import { ItemRow } from '../components/ItemRow'
 import { LogoEmpilhado, LogoHorizontal } from '../components/Logo'
 import { PixSection } from '../components/PixSection'
 import { ShareSection } from '../components/ShareSection'
+import { TituloSecao } from '../components/TituloSecao'
 import { CartProvider } from '../lib/cart'
 import { carregarMenu, type Menu } from '../lib/menu'
 
@@ -29,8 +30,8 @@ export function MenuPage() {
       <main className="mx-auto max-w-xl px-4 pb-32">
         {erro ? (
           <div className="mt-10 text-center">
-            <p className="text-tinta/70">Não foi possível carregar o cardápio.</p>
-            <button type="button" onClick={carregar} className="mt-3 rounded-full bg-ana-vermelho px-5 py-2 font-bold text-white">
+            <p className="text-tinta-suave">Não foi possível carregar o cardápio.</p>
+            <button type="button" onClick={carregar} className="botao mt-3 bg-ana-vermelho text-white">
               Tentar de novo
             </button>
           </div>
@@ -56,11 +57,10 @@ function Cardapio({ menu }: { menu: Menu }) {
     <>
       {menu.categorias.map((categoria) => (
         <section key={categoria.id} className="mt-8" aria-labelledby={`cat-${categoria.id}`}>
-          <h2 id={`cat-${categoria.id}`} className="mb-3 flex items-center gap-2 font-titulo text-2xl font-bold text-ana-vinho">
-            <Heart className="size-5 text-ana-vermelho" />
+          <TituloSecao id={`cat-${categoria.id}`} className="mb-1">
             {categoria.nome}
-          </h2>
-          <ul className="space-y-2.5">
+          </TituloSecao>
+          <ul className="divide-y divide-borda border-b border-borda">
             {categoria.itens.map((item, i) => (
               <ItemRow key={item.id} item={item} indice={i} />
             ))}

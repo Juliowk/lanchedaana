@@ -62,21 +62,21 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
             >
               <div className="mx-auto h-1.5 w-12 rounded-full bg-borda" />
               <div className="mt-3 flex items-center justify-between">
-                <h2 className="font-titulo text-2xl font-bold text-ana-vinho">Seu pedido</h2>
+                <h2 className="font-titulo text-2xl font-extrabold text-ana-vermelho">Seu pedido</h2>
                 <button
                   type="button"
                   onClick={aoFechar}
                   aria-label="Fechar carrinho"
-                  className="grid size-9 place-items-center rounded-full bg-ana-rosa text-ana-vinho"
+                  className="grid size-alvo place-items-center rounded-full bg-ana-rosa text-ana-vinho"
                 >
-                  <Close className="size-5" />
+                  <Close className="size-6" />
                 </button>
               </div>
             </div>
 
             <div className="flex-1 overflow-y-auto overscroll-contain px-5 pb-4">
               {linhas.length === 0 ? (
-                <p className="py-10 text-center text-tinta/60">Seu carrinho está vazio.</p>
+                <p className="py-10 text-center text-tinta-suave">Seu carrinho está vazio.</p>
               ) : (
                 <motion.ul layout className="divide-y divide-borda">
                   <AnimatePresence initial={false}>
@@ -90,35 +90,35 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                         className="flex items-center gap-3 py-3"
                       >
                         <div className="min-w-0 flex-1">
-                          <p className="font-bold leading-snug">{item.nome}</p>
-                          <p className="text-sm text-tinta/60">
-                            {formatBRL(item.precoCentavos)} · <span className="font-bold text-ana-vermelho">{formatBRL(subtotal)}</span>
+                          <p className="font-bold leading-snug text-tinta">{item.nome}</p>
+                          <p className="text-sm font-semibold text-tinta-suave">
+                            {formatBRL(item.precoCentavos)} · <span className="font-extrabold text-ana-vinho">{formatBRL(subtotal)}</span>
                           </p>
                         </div>
-                        <div className="flex items-center gap-1">
+                        <div className="flex items-center rounded-full bg-ana-rosa">
                           <button
                             type="button"
                             onClick={() => carrinho.diminuir(item.id)}
                             aria-label={`Remover um ${item.nome}`}
-                            className="grid size-8 place-items-center rounded-full bg-borda text-ana-vinho"
+                            className="grid size-alvo place-items-center rounded-full text-ana-vinho"
                           >
-                            <Minus className="size-4" />
+                            <Minus className="size-5" />
                           </button>
-                          <span className="w-6 text-center font-bold tabular-nums">{quantidade}</span>
+                          <span className="w-6 text-center font-extrabold tabular-nums">{quantidade}</span>
                           <button
                             type="button"
                             onClick={() => carrinho.adicionar(item.id)}
                             aria-label={`Adicionar ${item.nome}`}
-                            className="grid size-8 place-items-center rounded-full bg-ana-vermelho text-white"
+                            className="grid size-alvo place-items-center rounded-full bg-ana-vermelho text-white"
                           >
-                            <Plus className="size-4" />
+                            <Plus className="size-5" />
                           </button>
                         </div>
                         <button
                           type="button"
                           onClick={() => carrinho.remover(item.id)}
                           aria-label={`Tirar ${item.nome} do carrinho`}
-                          className="grid size-8 place-items-center rounded-full text-tinta/40 hover:text-ana-vermelho"
+                          className="-mr-2 grid size-alvo shrink-0 place-items-center rounded-full text-tinta-suave hover:text-ana-vermelho"
                         >
                           <Trash className="size-5" />
                         </button>
@@ -131,26 +131,26 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
               <motion.div layout className="mt-4 space-y-3">
                 <label className="block">
                   <span className="text-sm font-bold">
-                    Seu nome <span className="font-normal text-tinta/50">(opcional)</span>
+                    Seu nome <span className="font-semibold text-tinta-suave">(opcional)</span>
                   </span>
                   <input
                     value={nome}
                     onChange={(e) => carrinho.setNome(e.target.value)}
                     autoComplete="name"
                     placeholder="Ex.: João"
-                    className="mt-1 w-full rounded-xl border border-borda bg-ana-rosa/50 px-4 py-3 outline-none focus:border-ana-vermelho focus:ring-2 focus:ring-borda"
+                    className="mt-1 w-full rounded-xl border border-borda bg-ana-rosa/40 px-4 py-3 outline-none placeholder:text-tinta-suave/60 focus:border-ana-vermelho focus:ring-2 focus:ring-ana-rosa"
                   />
                 </label>
                 <label className="block">
                   <span className="text-sm font-bold">
-                    Observação <span className="font-normal text-tinta/50">(opcional)</span>
+                    Observação <span className="font-semibold text-tinta-suave">(opcional)</span>
                   </span>
                   <textarea
                     value={observacao}
                     onChange={(e) => carrinho.setObservacao(e.target.value)}
                     rows={2}
                     placeholder="Ex.: sem cebola"
-                    className="mt-1 w-full resize-none rounded-xl border border-borda bg-ana-rosa/50 px-4 py-3 outline-none focus:border-ana-vermelho focus:ring-2 focus:ring-borda"
+                    className="mt-1 w-full resize-none rounded-xl border border-borda bg-ana-rosa/40 px-4 py-3 outline-none placeholder:text-tinta-suave/60 focus:border-ana-vermelho focus:ring-2 focus:ring-ana-rosa"
                   />
                 </label>
               </motion.div>
@@ -159,28 +159,36 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
             <div className="border-t border-borda px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
               <div className="mb-3 flex items-baseline justify-between">
                 <span className="font-bold">Total</span>
-                <AnimatedBRL centavos={totalCentavos} className="font-titulo text-2xl font-bold text-ana-vinho" />
+                <AnimatedBRL centavos={totalCentavos} className="font-titulo text-2xl font-extrabold text-ana-vinho" />
               </div>
               <a
                 href={linhas.length ? link : undefined}
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-disabled={linhas.length === 0}
-                className={`flex w-full items-center justify-center gap-2 rounded-2xl px-5 py-4 text-lg font-extrabold text-white shadow-lg transition ${
+                className={`botao w-full text-lg text-white transition ${
                   linhas.length
-                    ? 'bg-[#25d366] shadow-[#25d366]/30 active:scale-[0.98]'
-                    : 'pointer-events-none bg-tinta/20 shadow-none'
+                    ? 'bg-ana-vermelho shadow-lg shadow-ana-vermelho/30 active:scale-[0.98]'
+                    : 'pointer-events-none bg-tinta/20'
                 }`}
               >
                 <EnviarPedido className="size-6" />
                 Enviar pedido
               </a>
               {linhas.length > 0 && (
-                <div className="mt-3 flex justify-between text-sm">
-                  <a href="#pix" onClick={aoFechar} className="font-bold text-ana-vermelho underline-offset-2 hover:underline">
+                <div className="mt-1 flex justify-between text-sm">
+                  <a
+                    href="#pix"
+                    onClick={aoFechar}
+                    className="inline-flex min-h-alvo items-center font-extrabold text-ana-vinho underline-offset-2 hover:underline"
+                  >
                     Pagar com Pix
                   </a>
-                  <button type="button" onClick={carrinho.esvaziar} className="text-tinta/50 hover:text-ana-vermelho">
+                  <button
+                    type="button"
+                    onClick={carrinho.esvaziar}
+                    className="inline-flex min-h-alvo items-center font-semibold text-tinta-suave hover:text-ana-vermelho"
+                  >
                     Esvaziar carrinho
                   </button>
                 </div>
