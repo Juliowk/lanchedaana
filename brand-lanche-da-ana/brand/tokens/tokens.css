@@ -1,0 +1,28 @@
+/* Lanche da Ana — tokens da identidade visual */
+@import url('https://fonts.googleapis.com/css2?family=Baloo+2:wght@600;700;800&family=Nunito:wght@400;600;700;800&display=swap');
+
+:root {
+  /* Cores */
+  --cor-vermelho-ana: #D63C45;   /* botões, títulos, barra do carrinho */
+  --cor-vinho: #7A1C26;          /* preços, traço do logo, texto de destaque */
+  --cor-dourado-pastel: #F2B544; /* selos, badge do carrinho, estado de sucesso */
+  --cor-rosa-coracao: #FCE8E9;   /* fundos de seção, chips inativos, stepper */
+  --cor-tinta: #2B1A1C;          /* texto principal */
+  --cor-tinta-suave: #5C4447;    /* texto secundário */
+  --cor-borda: #F3D3D5;          /* divisórias e bordas */
+  --cor-branco: #FFFFFF;         /* fundo */
+
+  /* Tipografia */
+  --fonte-titulo: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+  --fonte-texto: 'Nunito', system-ui, sans-serif;
+  --peso-titulo: 800;
+  --peso-texto: 600;
+  --peso-destaque: 800;
+
+  /* Forma */
+  --raio-pilula: 999px;
+  --raio-card: 20px;
+  --raio-botao: 18px;
+  --alvo-toque: 44px;
+  --sombra-flutuante: 0 10px 24px rgba(122, 28, 38, 0.28);
+}

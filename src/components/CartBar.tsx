@@ -20,7 +20,7 @@ export function CartBar({ aoAbrir }: { aoAbrir: () => void }) {
             type="button"
             onClick={aoAbrir}
             whileTap={{ scale: 0.97 }}
-            className="mx-auto flex w-full max-w-xl items-center gap-3 rounded-2xl bg-ana-600 px-4 py-3 text-left text-white shadow-xl shadow-ana-800/30"
+            className="mx-auto flex w-full max-w-xl items-center gap-3 rounded-2xl bg-ana-vermelho px-4 py-3 text-left text-white shadow-xl shadow-ana-vinho/30"
           >
             <span className="relative grid size-11 place-items-center rounded-xl bg-white/15">
               <Bag className="size-6" />
@@ -29,7 +29,7 @@ export function CartBar({ aoAbrir }: { aoAbrir: () => void }) {
                 initial={{ scale: 1.7 }}
                 animate={{ scale: 1 }}
                 transition={{ type: 'spring', stiffness: 500, damping: 14 }}
-                className="absolute -right-1.5 -top-1.5 grid min-w-6 place-items-center rounded-full bg-white px-1.5 text-sm font-extrabold text-ana-700"
+                className="absolute -right-1.5 -top-1.5 grid min-w-6 place-items-center rounded-full bg-white px-1.5 text-sm font-extrabold text-ana-vinho"
               >
                 {totalItens}
               </motion.span>
@@ -40,7 +40,7 @@ export function CartBar({ aoAbrir }: { aoAbrir: () => void }) {
                 {totalItens} {totalItens === 1 ? 'item' : 'itens'}
               </span>
             </span>
-            <AnimatedBRL centavos={totalCentavos} className="font-display text-xl font-bold" />
+            <AnimatedBRL centavos={totalCentavos} className="font-titulo text-xl font-bold" />
           </motion.button>
         </motion.div>
       )}

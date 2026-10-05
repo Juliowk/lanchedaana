@@ -60,14 +60,14 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
               className="cursor-grab touch-none px-5 pb-2 pt-3 active:cursor-grabbing"
               onPointerDown={(e) => arraste.start(e)}
             >
-              <div className="mx-auto h-1.5 w-12 rounded-full bg-ana-200" />
+              <div className="mx-auto h-1.5 w-12 rounded-full bg-borda" />
               <div className="mt-3 flex items-center justify-between">
-                <h2 className="font-display text-2xl font-bold text-ana-700">Seu pedido</h2>
+                <h2 className="font-titulo text-2xl font-bold text-ana-vinho">Seu pedido</h2>
                 <button
                   type="button"
                   onClick={aoFechar}
                   aria-label="Fechar carrinho"
-                  className="grid size-9 place-items-center rounded-full bg-ana-50 text-ana-700"
+                  className="grid size-9 place-items-center rounded-full bg-ana-rosa text-ana-vinho"
                 >
                   <Close className="size-5" />
                 </button>
@@ -78,7 +78,7 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
               {linhas.length === 0 ? (
                 <p className="py-10 text-center text-tinta/60">Seu carrinho está vazio.</p>
               ) : (
-                <motion.ul layout className="divide-y divide-ana-100">
+                <motion.ul layout className="divide-y divide-borda">
                   <AnimatePresence initial={false}>
                     {linhas.map(({ item, quantidade, subtotal }) => (
                       <motion.li
@@ -92,7 +92,7 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                         <div className="min-w-0 flex-1">
                           <p className="font-bold leading-snug">{item.nome}</p>
                           <p className="text-sm text-tinta/60">
-                            {formatBRL(item.precoCentavos)} · <span className="font-bold text-ana-600">{formatBRL(subtotal)}</span>
+                            {formatBRL(item.precoCentavos)} · <span className="font-bold text-ana-vermelho">{formatBRL(subtotal)}</span>
                           </p>
                         </div>
                         <div className="flex items-center gap-1">
@@ -100,7 +100,7 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                             type="button"
                             onClick={() => carrinho.diminuir(item.id)}
                             aria-label={`Remover um ${item.nome}`}
-                            className="grid size-8 place-items-center rounded-full bg-ana-100 text-ana-700"
+                            className="grid size-8 place-items-center rounded-full bg-borda text-ana-vinho"
                           >
                             <Minus className="size-4" />
                           </button>
@@ -109,7 +109,7 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                             type="button"
                             onClick={() => carrinho.adicionar(item.id)}
                             aria-label={`Adicionar ${item.nome}`}
-                            className="grid size-8 place-items-center rounded-full bg-ana-600 text-white"
+                            className="grid size-8 place-items-center rounded-full bg-ana-vermelho text-white"
                           >
                             <Plus className="size-4" />
                           </button>
@@ -118,7 +118,7 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                           type="button"
                           onClick={() => carrinho.remover(item.id)}
                           aria-label={`Tirar ${item.nome} do carrinho`}
-                          className="grid size-8 place-items-center rounded-full text-tinta/40 hover:text-ana-600"
+                          className="grid size-8 place-items-center rounded-full text-tinta/40 hover:text-ana-vermelho"
                         >
                           <Trash className="size-5" />
                         </button>
@@ -138,7 +138,7 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                     onChange={(e) => carrinho.setNome(e.target.value)}
                     autoComplete="name"
                     placeholder="Ex.: João"
-                    className="mt-1 w-full rounded-xl border border-ana-200 bg-ana-50/50 px-4 py-3 outline-none focus:border-ana-500 focus:ring-2 focus:ring-ana-200"
+                    className="mt-1 w-full rounded-xl border border-borda bg-ana-rosa/50 px-4 py-3 outline-none focus:border-ana-vermelho focus:ring-2 focus:ring-borda"
                   />
                 </label>
                 <label className="block">
@@ -150,16 +150,16 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
                     onChange={(e) => carrinho.setObservacao(e.target.value)}
                     rows={2}
                     placeholder="Ex.: sem cebola"
-                    className="mt-1 w-full resize-none rounded-xl border border-ana-200 bg-ana-50/50 px-4 py-3 outline-none focus:border-ana-500 focus:ring-2 focus:ring-ana-200"
+                    className="mt-1 w-full resize-none rounded-xl border border-borda bg-ana-rosa/50 px-4 py-3 outline-none focus:border-ana-vermelho focus:ring-2 focus:ring-borda"
                   />
                 </label>
               </motion.div>
             </div>
 
-            <div className="border-t border-ana-100 px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
+            <div className="border-t border-borda px-5 pb-[max(1rem,env(safe-area-inset-bottom))] pt-4">
               <div className="mb-3 flex items-baseline justify-between">
                 <span className="font-bold">Total</span>
-                <AnimatedBRL centavos={totalCentavos} className="font-display text-2xl font-bold text-ana-700" />
+                <AnimatedBRL centavos={totalCentavos} className="font-titulo text-2xl font-bold text-ana-vinho" />
               </div>
               <a
                 href={linhas.length ? link : undefined}
@@ -177,10 +177,10 @@ export function CartSheet({ aberto, aoFechar }: { aberto: boolean; aoFechar: () 
               </a>
               {linhas.length > 0 && (
                 <div className="mt-3 flex justify-between text-sm">
-                  <a href="#pix" onClick={aoFechar} className="font-bold text-ana-600 underline-offset-2 hover:underline">
+                  <a href="#pix" onClick={aoFechar} className="font-bold text-ana-vermelho underline-offset-2 hover:underline">
                     Pagar com Pix
                   </a>
-                  <button type="button" onClick={carrinho.esvaziar} className="text-tinta/50 hover:text-ana-600">
+                  <button type="button" onClick={carrinho.esvaziar} className="text-tinta/50 hover:text-ana-vermelho">
                     Esvaziar carrinho
                   </button>
                 </div>

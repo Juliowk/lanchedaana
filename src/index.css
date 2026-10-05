@@ -1,17 +1,54 @@
 @import 'tailwindcss';
 
-@theme {
-  --color-ana-50: #fff5f5;
-  --color-ana-100: #ffe3e4;
-  --color-ana-200: #ffc9cb;
-  --color-ana-500: #e5343c;
-  --color-ana-600: #d7262e;
-  --color-ana-700: #b31a22;
-  --color-ana-800: #8f151b;
-  --color-tinta: #2b1a1b;
+/* Tokens da identidade visual (brand-lanche-da-ana/brand/tokens/tokens.css).
+   As fontes são carregadas pelo <link> do Google Fonts no index.html. */
+:root {
+  /* Cores */
+  --cor-vermelho-ana: #d63c45; /* botões, títulos, barra do carrinho */
+  --cor-vinho: #7a1c26; /* preços, traço do logo, texto de destaque */
+  --cor-dourado-pastel: #f2b544; /* selos, badge do carrinho, estado de sucesso */
+  --cor-rosa-coracao: #fce8e9; /* fundos de seção, chips inativos, stepper */
+  --cor-tinta: #2b1a1c; /* texto principal */
+  --cor-tinta-suave: #5c4447; /* texto secundário */
+  --cor-borda: #f3d3d5; /* divisórias e bordas */
+  --cor-branco: #ffffff; /* fundo */
 
-  --font-sans: 'Nunito', ui-rounded, system-ui, sans-serif;
-  --font-display: 'Baloo 2', 'Nunito', ui-rounded, system-ui, sans-serif;
+  /* Tipografia */
+  --fonte-titulo: 'Baloo 2', 'Nunito', system-ui, sans-serif;
+  --fonte-texto: 'Nunito', system-ui, sans-serif;
+  --peso-titulo: 800;
+  --peso-texto: 600;
+  --peso-destaque: 800;
+
+  /* Forma */
+  --raio-pilula: 999px;
+  --raio-card: 20px;
+  --raio-botao: 18px;
+  --alvo-toque: 44px;
+  --sombra-flutuante: 0 10px 24px rgba(122, 28, 38, 0.28);
+}
+
+/* Expõe os tokens como utilitários do Tailwind (bg-ana-vermelho, font-titulo, rounded-botao…) */
+@theme inline {
+  --color-ana-vermelho: var(--cor-vermelho-ana);
+  --color-ana-vinho: var(--cor-vinho);
+  --color-ana-dourado: var(--cor-dourado-pastel);
+  --color-ana-rosa: var(--cor-rosa-coracao);
+  --color-tinta: var(--cor-tinta);
+  --color-tinta-suave: var(--cor-tinta-suave);
+  --color-borda: var(--cor-borda);
+
+  --font-sans: var(--fonte-texto);
+  --font-texto: var(--fonte-texto);
+  --font-titulo: var(--fonte-titulo);
+
+  --radius-card: var(--raio-card);
+  --radius-botao: var(--raio-botao);
+  --radius-carrinho: 22px;
+
+  --shadow-flutuante: var(--sombra-flutuante);
+
+  --spacing-alvo: var(--alvo-toque);
 }
 
 html {
@@ -20,7 +57,7 @@ html {
 }
 
 body {
-  @apply bg-ana-50 font-sans text-tinta antialiased;
+  @apply bg-white font-texto text-tinta antialiased;
 }
 
 @media (prefers-reduced-motion: reduce) {

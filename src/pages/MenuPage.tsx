@@ -29,13 +29,13 @@ export function MenuPage() {
         {erro ? (
           <div className="mt-10 text-center">
             <p className="text-tinta/70">Não foi possível carregar o cardápio.</p>
-            <button type="button" onClick={carregar} className="mt-3 rounded-full bg-ana-600 px-5 py-2 font-bold text-white">
+            <button type="button" onClick={carregar} className="mt-3 rounded-full bg-ana-vermelho px-5 py-2 font-bold text-white">
               Tentar de novo
             </button>
           </div>
         ) : !menu ? (
           <div className="mt-16 flex justify-center" aria-label="Carregando">
-            <Heart className="size-10 animate-pulse text-ana-500" />
+            <Heart className="size-10 animate-pulse text-ana-vermelho" />
           </div>
         ) : (
           <CartProvider menu={menu}>
@@ -55,8 +55,8 @@ function Cardapio({ menu }: { menu: Menu }) {
     <>
       {menu.categorias.map((categoria) => (
         <section key={categoria.id} className="mt-8" aria-labelledby={`cat-${categoria.id}`}>
-          <h2 id={`cat-${categoria.id}`} className="mb-3 flex items-center gap-2 font-display text-2xl font-bold text-ana-700">
-            <Heart className="size-5 text-ana-500" />
+          <h2 id={`cat-${categoria.id}`} className="mb-3 flex items-center gap-2 font-titulo text-2xl font-bold text-ana-vinho">
+            <Heart className="size-5 text-ana-vermelho" />
             {categoria.nome}
           </h2>
           <ul className="space-y-2.5">
@@ -76,7 +76,7 @@ function Cardapio({ menu }: { menu: Menu }) {
       </div>
 
       <footer className="mt-10 flex items-center justify-center gap-1 text-sm text-tinta/50">
-        Feito com <Heart className="size-3.5 text-ana-500" /> pela Ana
+        Feito com <Heart className="size-3.5 text-ana-vermelho" /> pela Ana
       </footer>
 
       <CartBar aoAbrir={() => setCarrinhoAberto(true)} />
@@ -95,7 +95,7 @@ const coracoesDecorativos = [
 
 function Cabecalho() {
   return (
-    <header className="relative overflow-hidden rounded-b-[2.5rem] bg-ana-600 px-4 pb-10 pt-[max(2.5rem,env(safe-area-inset-top))] text-center text-white shadow-lg shadow-ana-800/20">
+    <header className="relative overflow-hidden rounded-b-[2.5rem] bg-ana-vermelho px-4 pb-10 pt-[max(2.5rem,env(safe-area-inset-top))] text-center text-white shadow-lg shadow-ana-vinho/20">
       {coracoesDecorativos.map((c, i) => (
         <motion.span
           key={i}
@@ -109,7 +109,7 @@ function Cabecalho() {
       ))}
       <motion.div initial={{ opacity: 0, y: -12 }} animate={{ opacity: 1, y: 0 }} transition={{ duration: 0.5 }}>
         <p className="text-sm font-bold uppercase tracking-[0.25em] text-white/80">Cardápio</p>
-        <h1 className="font-display text-5xl font-extrabold leading-tight drop-shadow-sm">Lanche da Ana</h1>
+        <h1 className="font-titulo text-5xl font-extrabold leading-tight drop-shadow-sm">Lanche da Ana</h1>
         <p className="mt-1 flex items-center justify-center gap-1.5 font-semibold text-white/90">
           Pastéis, cachorro quente e batatinha <Heart className="size-4" />
         </p>

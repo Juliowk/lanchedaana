@@ -1,5 +1,6 @@
 import { useEffect, useState } from 'react'
 import QRCode from 'qrcode'
+import { corQrCode } from './marca'
 
 /** Gera o QR code de um texto como data URL (PNG). */
 export function useQrCode(texto: string): string | undefined {
@@ -7,7 +8,7 @@ export function useQrCode(texto: string): string | undefined {
 
   useEffect(() => {
     let ativo = true
-    QRCode.toDataURL(texto, { margin: 1, width: 480, color: { dark: '#2b1a1b', light: '#ffffff' } })
+    QRCode.toDataURL(texto, { margin: 1, width: 480, color: corQrCode })
       .then((u) => ativo && setUrl(u))
       .catch(() => ativo && setUrl(undefined))
     return () => {

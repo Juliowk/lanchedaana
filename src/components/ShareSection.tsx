@@ -23,17 +23,17 @@ export function ShareSection() {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.2 }}
       transition={{ duration: 0.45 }}
-      className="rounded-3xl bg-white p-5 text-center shadow-sm ring-1 ring-ana-100"
+      className="rounded-3xl bg-white p-5 text-center shadow-sm ring-1 ring-borda"
     >
-      <h2 className="font-display text-2xl font-bold text-ana-700">Compartilhe</h2>
+      <h2 className="font-titulo text-2xl font-bold text-ana-vinho">Compartilhe</h2>
       <p className="mt-1 text-sm text-tinta/70">Gostou? Mande o cardápio para os amigos.</p>
 
-      <div className="mx-auto mt-4 aspect-square w-48 rounded-2xl bg-white p-2 ring-1 ring-ana-100">
+      <div className="mx-auto mt-4 aspect-square w-48 rounded-2xl bg-white p-2 ring-1 ring-borda">
         {qr && <img src={qr} alt="QR code do site Lanche da Ana" className="size-full" />}
       </div>
       <QrDownloadButton texto={config.siteUrl} arquivo="lanche-da-ana-qrcode.png" className="mt-3" />
 
-      <p className="mt-4 break-all rounded-2xl bg-ana-50 px-4 py-3 font-bold text-ana-700">
+      <p className="mt-4 break-all rounded-2xl bg-ana-rosa px-4 py-3 font-bold text-ana-vinho">
         {config.siteUrl.replace(/^https?:\/\//, '').replace(/\/$/, '')}
       </p>
 
@@ -54,7 +54,7 @@ export function ShareSection() {
               type="button"
               whileTap={{ scale: 0.95 }}
               onClick={compartilhar}
-              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 font-bold text-ana-700 ring-2 ring-ana-600"
+              className="inline-flex items-center justify-center gap-2 rounded-full bg-white px-4 py-3 font-bold text-ana-vinho ring-2 ring-ana-vermelho"
             >
               <Share className="size-5" />
               Compartilhar

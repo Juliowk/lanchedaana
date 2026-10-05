@@ -27,10 +27,10 @@ export function CopyButton({ texto, rotulo, rotuloCopiado = 'Copiado!', variante
       onClick={async () => setCopiado(await copiarTexto(texto))}
       className={`inline-flex items-center justify-center gap-2 rounded-full px-5 py-3 font-bold transition-colors ${
         copiado
-          ? 'bg-emerald-600 text-white'
+          ? 'bg-ana-dourado text-tinta'
           : variante === 'cheia'
-            ? 'bg-ana-600 text-white hover:bg-ana-700'
-            : 'bg-white text-ana-700 ring-2 ring-ana-600 hover:bg-ana-50'
+            ? 'bg-ana-vermelho text-white hover:bg-ana-vinho'
+            : 'bg-white text-ana-vinho ring-2 ring-ana-vermelho hover:bg-ana-rosa'
       } ${className}`}
     >
       <span className="relative grid size-5 place-items-center">

@@ -25,11 +25,11 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
       whileInView={{ opacity: 1, y: 0 }}
       viewport={{ once: true, amount: 0.3 }}
       transition={{ duration: 0.4, ease: 'easeOut', delay: (indice % 4) * 0.05 }}
-      className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-ana-100"
+      className="flex items-center gap-3 rounded-2xl bg-white px-4 py-3 shadow-sm ring-1 ring-borda"
     >
       <div className="min-w-0 flex-1">
         <p className="font-bold leading-snug">{item.nome}</p>
-        <p className="font-display text-lg font-bold text-ana-600">{formatBRL(item.precoCentavos)}</p>
+        <p className="font-titulo text-lg font-bold text-ana-vermelho">{formatBRL(item.precoCentavos)}</p>
       </div>
 
       <div className="flex items-center gap-1">
@@ -48,7 +48,7 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
                 whileTap={{ scale: 0.85 }}
                 onClick={() => diminuir(item.id)}
                 aria-label={`Remover um ${item.nome}`}
-                className="grid size-9 place-items-center rounded-full bg-ana-100 text-ana-700"
+                className="grid size-9 place-items-center rounded-full bg-borda text-ana-vinho"
               >
                 <Minus className="size-4" />
               </motion.button>
@@ -56,7 +56,7 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
                 key={quantidade}
                 initial={{ scale: 1.4 }}
                 animate={{ scale: 1 }}
-                className="w-7 text-center font-display text-lg font-bold tabular-nums"
+                className="w-7 text-center font-titulo text-lg font-bold tabular-nums"
                 aria-label={`${quantidade} no carrinho`}
               >
                 {quantidade}
@@ -72,14 +72,14 @@ export function ItemRow({ item, indice }: { item: Item; indice: number }) {
             whileTap={{ scale: 0.85 }}
             onClick={aoAdicionar}
             aria-label={`Adicionar ${item.nome}`}
-            className="grid size-10 place-items-center rounded-full bg-ana-600 text-white shadow-md shadow-ana-600/30"
+            className="grid size-10 place-items-center rounded-full bg-ana-vermelho text-white shadow-md shadow-ana-vermelho/30"
           >
             <Plus className="size-5" />
           </motion.button>
           {coracoes.map((id) => (
             <motion.span
               key={id}
-              className="pointer-events-none absolute left-1/2 top-0 -ml-2 text-ana-500"
+              className="pointer-events-none absolute left-1/2 top-0 -ml-2 text-ana-vermelho"
               initial={{ opacity: 1, y: 0, scale: 0.6, x: 0 }}
               animate={{ opacity: 0, y: -52, scale: 1.2, x: Math.floor(id) % 2 ? 10 : -10 }}
               transition={{ duration: 0.8, ease: 'easeOut' }}
